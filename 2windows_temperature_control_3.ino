@@ -114,14 +114,16 @@ lcd.print("C");
 */
 
 // control firt motor
-
+lcd.setCursor(8, 0);
+lcd.print("        ");
 if (te > tecald)
 {
  Serial.println("Motor 1 +");
  digitalWrite(pin1, releuatras);    // turn the relay 1 on by making the voltage LOW 
  digitalWrite(pin2, releuliber);    // turn the relay 2 off by making the voltage HIGH
 lcd.setCursor(8, 0);
-lcd.print(" >= 30");
+lcd.print(" >= ");
+lcd.print(tecald,0);
 // lcd.write(0b11011111);  // caracter asemanatpor cu gradul Celsius
 lcd.write(byte(0));  // simbolul de grad Celsius creat de mine
 lcd.print("C");
@@ -134,7 +136,8 @@ if (te < terece)
  digitalWrite(pin1, releuliber);    // turn the relay 1 off by making the voltage HIGH 
  digitalWrite(pin2, releuatras);    // turn the relay 2 on by making the voltage LOW
 lcd.setCursor(8, 0);
-lcd.print(" <= 27");
+lcd.print(" <= ");
+lcd.print(terece,0);
 // lcd.write(0b11011111);  // caracter asemanatpor cu gradul Celsius
 lcd.write(byte(0));  // simbolul de grad Celsius creat de mine
 lcd.print("C");
@@ -154,7 +157,8 @@ lcd.print(e);
 lcd.print("%");
 delay(pauza);
 }
-
+lcd.setCursor(8, 0);
+lcd.print("        ");
 lcd.setCursor(0, 1);
 lcd.print("            ");
 // free all relays
@@ -190,6 +194,8 @@ lcd.write(byte(0));  // simbolul de grad Celsius creat de mine
 lcd.print("C");
 
 // control second relay
+lcd.setCursor(8, 0);
+lcd.print("        ");
 //lcd.setCursor(0, 1);
  digitalWrite(pin1, releuliber);    // turn the relay 1 off by making the voltage HIGH 
  digitalWrite(pin2, releuliber);    // turn the relay 2 off by making the voltage HIGH
@@ -199,7 +205,8 @@ if (te > tecald)
  digitalWrite(pin3, releuatras);    // turn the relay 3 on by making the voltage LOW
  digitalWrite(pin4, releuliber);    // turn the relay 4 off by making the voltage HIGH
 lcd.setCursor(8, 0);
-lcd.print(" >= 30");
+lcd.print(" >= ");
+lcd.print(tecald,0);
 // lcd.write(0b11011111);  // caracter asemanatpor cu gradul Celsius
 lcd.write(byte(0));  // simbolul de grad Celsius creat de mine
 lcd.print("C");
@@ -212,7 +219,8 @@ if (te < terece)
  digitalWrite(pin3, releuliber);    // turn the relay 1 off by making the voltage HIGH 
  digitalWrite(pin4, releuatras);    // turn the relay 2 on by making the voltage LOW
 lcd.setCursor(8, 0);
-lcd.print(" <= 27");
+lcd.print(" <= ");
+lcd.print(terece,0);
 // lcd.write(0b11011111);  // caracter asemanatpor cu gradul Celsius
 lcd.write(byte(0));  // simbolul de grad Celsius creat de mine
 lcd.print("C");
