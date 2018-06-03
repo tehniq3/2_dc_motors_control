@@ -39,8 +39,8 @@ byte grad[8] = {
 #define releuatras LOW
 #define releuliber HIGH
 
-//int pauza = 200;  // pause between commands (just fort tests)
-int pauza = 1500;  // pause between commands
+int pauza = 200;  // pause between commands (just fort tests)
+//int pauza = 1500;  // pause between commands
 float te;
 float tecald = 30.;  // 
 float terece = 27.; //
@@ -62,8 +62,8 @@ delay(2500);
 lcd.clear();
 lcd.setCursor(1, 0);
 lcd.print("conceptie a lui");
-lcd.setCursor(2, 1);
-lcd.print("Nicu FLORICA");
+lcd.setCursor(0, 1);
+lcd.print("Nicu FLORICA v.3");
 delay(2500);
 lcd.clear();
 
@@ -159,8 +159,29 @@ delay(pauza);
 }
 lcd.setCursor(8, 0);
 lcd.print("        ");
+if (te > tecald)
+{
+lcd.setCursor(8, 0);
+lcd.print(" >= ");
+lcd.print(tecald,0);
+// lcd.write(0b11011111);  // caracter asemanatpor cu gradul Celsius
+lcd.write(byte(0));  // simbolul de grad Celsius creat de mine
+lcd.print("C");
 lcd.setCursor(0, 1);
-lcd.print("            ");
+lcd.print("prea cald ! ");
+}
+if (te < terece)
+{
+lcd.setCursor(8, 0);
+lcd.print(" <= ");
+lcd.print(terece,0);
+// lcd.write(0b11011111);  // caracter asemanatpor cu gradul Celsius
+lcd.write(byte(0));  // simbolul de grad Celsius creat de mine
+lcd.print("C");
+lcd.setCursor(0, 1);
+lcd.print("prea rece ! ");
+}
+
 // free all relays
  digitalWrite(pin1, releuliber);    // turn the relay 1 off by making the voltage HIGH 
  digitalWrite(pin2, releuliber);    // turn the relay 2 off by making the voltage HIGH
@@ -239,8 +260,31 @@ delay(pauza);
 }
 
 // free all relays
+lcd.setCursor(8, 0);
+lcd.print("        ");
+if (te > tecald)
+{
+lcd.setCursor(8, 0);
+lcd.print(" >= ");
+lcd.print(tecald,0);
+// lcd.write(0b11011111);  // caracter asemanatpor cu gradul Celsius
+lcd.write(byte(0));  // simbolul de grad Celsius creat de mine
+lcd.print("C");
 lcd.setCursor(0, 1);
-lcd.print("            ");
+lcd.print("prea cald ! ");
+}
+if (te < terece)
+{
+lcd.setCursor(8, 0);
+lcd.print(" <= ");
+lcd.print(terece,0);
+// lcd.write(0b11011111);  // caracter asemanatpor cu gradul Celsius
+lcd.write(byte(0));  // simbolul de grad Celsius creat de mine
+lcd.print("C");
+lcd.setCursor(0, 1);
+lcd.print("prea rece ! ");
+}
+
  digitalWrite(pin1, releuliber);    // turn the relay 1 off by making the voltage HIGH 
  digitalWrite(pin2, releuliber);    // turn the relay 2 off by making the voltage HIGH
  digitalWrite(pin3, releuliber);    // turn the relay 3 off by making the voltage HIGH
