@@ -39,8 +39,8 @@ byte grad[8] = {
 #define releuatras LOW
 #define releuliber HIGH
 
-int pauza = 200;  // pause between commands (just fort tests)
-//int pauza = 1500;  // pause between commands
+//int pauza = 200;  // pause between commands (just fort tests)
+int pauza = 1500;  // pause between commands
 float te;
 float tecald = 30.;  // 
 float terece = 27.; //
@@ -159,6 +159,8 @@ delay(pauza);
 }
 lcd.setCursor(8, 0);
 lcd.print("        ");
+lcd.setCursor(0, 1);
+lcd.print("                ");
 if (te > tecald)
 {
 lcd.setCursor(8, 0);
@@ -262,6 +264,8 @@ delay(pauza);
 // free all relays
 lcd.setCursor(8, 0);
 lcd.print("        ");
+lcd.setCursor(0, 1);
+lcd.print("                ");
 if (te > tecald)
 {
 lcd.setCursor(8, 0);
